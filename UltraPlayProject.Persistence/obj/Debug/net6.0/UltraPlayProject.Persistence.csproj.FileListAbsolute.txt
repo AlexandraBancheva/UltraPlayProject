@@ -1,0 +1,17 @@
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Persistence.deps.json
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Persistence.runtimeconfig.json
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Persistence.dll
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Persistence.pdb
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Domain.dll
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Domain.pdb
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\UltraPlayProject.Persistence.csproj.AssemblyReference.cache
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\UltraPlayProject.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\UltraPlayProject.Persistence.AssemblyInfoInputs.cache
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\UltraPlayProject.Persistence.AssemblyInfo.cs
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\UltraPlayProject.Persistence.csproj.CoreCompileInputs.cache
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\UltraPlayProject.Persistence.csproj.CopyComplete
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\UltraPlayProject.Persistence.dll
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\refint\UltraPlayProject.Persistence.dll
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\UltraPlayProject.Persistence.pdb
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\UltraPlayProject.Persistence.genruntimeconfig.cache
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\ref\UltraPlayProject.Persistence.dll
