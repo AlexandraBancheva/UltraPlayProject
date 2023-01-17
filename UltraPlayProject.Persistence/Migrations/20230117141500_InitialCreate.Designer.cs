@@ -12,8 +12,8 @@ using UltraPlayProject.Persistence;
 namespace UltraPlayProject.Persistence.Migrations
 {
     [DbContext(typeof(UltraPlayProjectContext))]
-    [Migration("20230117121648_InitialeCreate")]
-    partial class InitialeCreate
+    [Migration("20230117141500_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,6 +77,9 @@ namespace UltraPlayProject.Persistence.Migrations
                     b.Property<bool>("IsLive")
                         .HasColumnType("bit");
 
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -84,6 +87,8 @@ namespace UltraPlayProject.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("MatchId");
 
                     b.ToTable("Events");
                 });
@@ -96,7 +101,7 @@ namespace UltraPlayProject.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("MatchId")
+                    b.Property<int>("BetId")
                         .HasColumnType("int");
 
                     b.Property<int>("MatchType")
@@ -111,7 +116,7 @@ namespace UltraPlayProject.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MatchId");
+                    b.HasIndex("BetId");
 
                     b.ToTable("Matches");
                 });
@@ -180,14 +185,22 @@ namespace UltraPlayProject.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("UltraPlayProject.Domain.Entities.Match", "Match")
+                        .WithMany()
+                        .HasForeignKey("MatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Category");
+
+                    b.Navigation("Match");
                 });
 
             modelBuilder.Entity("UltraPlayProject.Domain.Entities.Match", b =>
                 {
                     b.HasOne("UltraPlayProject.Domain.Entities.Bet", "Bet")
                         .WithMany()
-                        .HasForeignKey("MatchId")
+                        .HasForeignKey("BetId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

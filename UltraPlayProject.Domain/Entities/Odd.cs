@@ -7,10 +7,8 @@ namespace UltraPlayProject.Domain.Entities
         [Key]
         public int Id { get; set; }
 
-        [Required]
         public string Name { get; set; }
 
-        [Required]
         public double Value { get; set; }
 
         // SpecialBetValue (SBV) is used in "Map Advantage", “Total Maps Played" and
