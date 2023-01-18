@@ -1,17 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace UltraPlayProject.Domain.Entities
+﻿namespace UltraPlayProject.Domain.Entities
 {
     public class Sport
     {
-        [Key]
+        public Sport()
+        {
+            this.Events = new List<Event>();
+        }
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        [ForeignKey(nameof(Event))]
-        public int EventId { get; set; }
-        public Event Event { get; set; }
+        public ICollection<Event> Events { get; set; }
     }
 }

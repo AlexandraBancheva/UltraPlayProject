@@ -6,10 +6,10 @@ namespace UltraPlayProject.Domain.DTOs
     [XmlType("Sport")]
     public class ImportSportDTO
     {
-        [XmlElement("Name")]
+        [XmlAttribute("Name")]
         public string Name { get; set; }
 
-        [XmlElement("ID")]
+        [XmlAttribute("ID")]
         public int Id { get; set; }
 
         [XmlArray("Event")]

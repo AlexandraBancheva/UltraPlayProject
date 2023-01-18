@@ -5,13 +5,13 @@ namespace UltraPlayProject.Domain.DTOs
     [XmlType("Bet")]
     public class ImportBetDTO
     {
-        [XmlElement("Name")]
+        [XmlAttribute("Name")]
         public string Name { get; set; }
 
-        [XmlElement("ID")]
+        [XmlAttribute("ID")]
         public int Id { get; set; }
 
-        [XmlElement("IsLive")]
+        [XmlAttribute("IsLive")]
         public bool IsLive { get; set; }
 
         [XmlArray("Odd")]

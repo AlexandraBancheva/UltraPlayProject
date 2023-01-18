@@ -5,7 +5,11 @@ namespace UltraPlayProject.Domain.Entities
 {
     public class Event
     {
-        [Key]
+        public Event()
+        {
+            this.Matches = new List<Match>();
+        }
+
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -17,8 +21,6 @@ namespace UltraPlayProject.Domain.Entities
 
         public Category Category { get; set; }
 
-        [ForeignKey(nameof(Match))]
-        public int MatchId { get; set; }
-        public Match Match { get; set; }
+        public ICollection<Match> Matches { get; set; }
     }
 }

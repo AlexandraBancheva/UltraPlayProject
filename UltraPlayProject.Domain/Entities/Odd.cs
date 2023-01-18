@@ -4,7 +4,6 @@ namespace UltraPlayProject.Domain.Entities
 {
     public class Odd
     {
-        [Key]
         public int Id { get; set; }
 
         public string Name { get; set; }

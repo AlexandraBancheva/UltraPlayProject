@@ -24,23 +24,31 @@ namespace UltraPlayProject.Persistence
 
             foreach (var dto in sportDto)
             {
-                // Sport
                 var sport = new Sport
                 {
                     Id = dto.Id,
                     Name = dto.Name,
                 };
 
-                // Events
-                var eventz = dto.Events
-                    .Where(e => db.Events.Any(ev => ev.Id == e.Id))
-                    .Distinct();
 
-                //Matches
-                foreach (var match in eventz)
-                {
-                    var matchez = match.Matches.Where(m => db.Matches.Any(ma => ma.Id == m.Id)).Distinct();
-                }
+                
+                // Sport
+                //var sport = new Sport
+                //{
+                //    Id = dto.Id,
+                //    Name = dto.Name,
+                //};
+
+                //// Events
+                //var eventz = dto.Events
+                //    .Where(e => db.Events.Any(ev => ev.Id == e.Id))
+                //    .Distinct();
+
+                ////Matches
+                //foreach (var match in eventz)
+                //{
+                //    var matchez = match.Matches.Where(m => db.Matches.Any(ma => ma.Id == m.Id)).Distinct();
+                //}
             }
         }
     }
