@@ -125,5 +125,14 @@ namespace UltraPlayProject.Persistence
                 return Encoding.ASCII.GetString(requestData);
             }
         }
+
+        public List<Match> GetAllMatchesLast24Hours()
+        {
+            var db = new UltraPlayProjectContext();
+            var matches = db.Matches.Where(m => m.StartDate.AddDays(1) >= DateTime.UtcNow).ToList();
+            matches.Where(m => m.Bets.Any(b => b.IsLive == true));
+
+            return matches;
+        }
     }
 }

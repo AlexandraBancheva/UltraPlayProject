@@ -14,7 +14,8 @@ namespace UltraPlayProject.Domain.Services
 
         public List<ExportMatchDTO> GetAllMarkets24Hours()
         {
-            throw new NotImplementedException();
+            var matches = _ultraPlayRepository.GetAllMatchesLast24Hours();
+            return null;
         }
     }
 }
