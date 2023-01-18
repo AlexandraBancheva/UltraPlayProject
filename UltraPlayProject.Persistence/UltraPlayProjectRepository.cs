@@ -1,8 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Net;
+﻿using System.Net;
 using System.Text;
-using System.Transactions;
-using System.Xml.Linq;
 using System.Xml.Serialization;
 using UltraPlayProject.Domain.DTOs;
 using UltraPlayProject.Domain.Entities;
