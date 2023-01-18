@@ -1,4 +1,7 @@
-﻿namespace UltraPlayProject.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace UltraPlayProject.Domain.Entities
 {
     public class Sport
     {
@@ -6,7 +9,9 @@
         {
             this.Events = new List<Event>();
         }
-        public int Id { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ID { get; set; }
 
         public string Name { get; set; }
 

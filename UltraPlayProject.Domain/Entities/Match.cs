@@ -10,7 +10,8 @@ namespace UltraPlayProject.Domain.Entities
             this.Bets = new List<Bet>();
         }
 
-        public int Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ID { get; set; }
 
         public string Name { get; set; }
 

@@ -24,7 +24,7 @@ namespace UltraPlayProject.Persistence
 
         public DbSet<Odd> Odds { get; set; }
 
-        public DbSet<Category> Categories { get; set; }
+      //  public DbSet<Category> Categories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

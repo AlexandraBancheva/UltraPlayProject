@@ -9,12 +9,12 @@ namespace UltraPlayProject.Domain.DTOs
         public string Name { get; set; }
 
         [XmlAttribute("ID")]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [XmlAttribute("IsLive")]
         public bool IsLive { get; set; }
 
-        [XmlArray("Odd")]
+        [XmlElement("Odd")]
         public ImportOddDTO[] Odds { get; set; }
     }
 }

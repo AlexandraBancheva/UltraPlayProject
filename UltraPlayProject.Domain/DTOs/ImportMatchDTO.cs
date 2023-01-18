@@ -9,15 +9,15 @@ namespace UltraPlayProject.Domain.DTOs
         public string Name { get; set; }
 
         [XmlAttribute("ID")]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [XmlAttribute("StartDate")]
         public DateTime StartDate { get; set; }
 
         [XmlAttribute("MatchType")]
-        public MatchType MatchType { get; set; }
+        public string MatchType { get; set; }
 
-        [XmlArray("Bet")]
+        [XmlElement("Bet")]
         public ImportBetDTO[] Bets { get; set; }
     }
 }

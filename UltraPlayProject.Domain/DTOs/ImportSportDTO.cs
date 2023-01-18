@@ -10,9 +10,9 @@ namespace UltraPlayProject.Domain.DTOs
         public string Name { get; set; }
 
         [XmlAttribute("ID")]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
-        [XmlArray("Event")]
+        [XmlElement("Event")]
         public ImportEventDTO[] Events { get; set; }
     }
 }

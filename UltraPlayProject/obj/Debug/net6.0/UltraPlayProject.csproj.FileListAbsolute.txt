@@ -14,7 +14,6 @@ D:\Sources\UltraPlayProject\UltraPlayProject\obj\Debug\net6.0\UltraPlayProject.G
 D:\Sources\UltraPlayProject\UltraPlayProject\obj\Debug\net6.0\UltraPlayProject.AssemblyInfoInputs.cache
 D:\Sources\UltraPlayProject\UltraPlayProject\obj\Debug\net6.0\UltraPlayProject.AssemblyInfo.cs
 D:\Sources\UltraPlayProject\UltraPlayProject\obj\Debug\net6.0\UltraPlayProject.csproj.CoreCompileInputs.cache
-D:\Sources\UltraPlayProject\UltraPlayProject\obj\Debug\net6.0\UltraPlayProject.MvcApplicationPartsAssemblyInfo.cs
 D:\Sources\UltraPlayProject\UltraPlayProject\obj\Debug\net6.0\UltraPlayProject.MvcApplicationPartsAssemblyInfo.cache
 D:\Sources\UltraPlayProject\UltraPlayProject\obj\Debug\net6.0\staticwebassets.build.json
 D:\Sources\UltraPlayProject\UltraPlayProject\obj\Debug\net6.0\staticwebassets.development.json

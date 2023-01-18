@@ -2,8 +2,8 @@
 {
     public enum MatchType
     {
-        Prematch = 0,
+        PreMatch = 0,
         Live = 1,
-        Outright = 2
+        Outright = 2,
     }
 }
