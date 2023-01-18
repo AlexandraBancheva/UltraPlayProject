@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using UltraPlayProject.Domain.Interfaces;
 
 namespace UltraPlayProject.Controllers
 {
@@ -6,9 +7,16 @@ namespace UltraPlayProject.Controllers
     [Route("api/UltraPlay")]
     public class UltraPlayController : ControllerBase
     {
+        public readonly IUltraPlayRepository _ultraPlayRepository;
+        public UltraPlayController(IUltraPlayRepository ultraPlayRepository)
+        {
+            _ultraPlayRepository = ultraPlayRepository;
+        }
+
         [HttpGet]
         public IActionResult AllMatchesStartingBy24Hours()
         {
+            _ultraPlayRepository.UpdateDatabase();
             return Ok();
         }
 
