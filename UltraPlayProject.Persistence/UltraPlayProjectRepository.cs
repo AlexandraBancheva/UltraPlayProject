@@ -13,7 +13,7 @@ namespace UltraPlayProject.Persistence
         {
             var db = new UltraPlayProjectContext();
             Uri uri = new Uri("https://sports.ultraplay.net/sportsxml?clientKey=9C5E796D-4D54-42FD-A535-D7E77906541A&sportId=2357&days=7");
-            var result =  GetWebPage(uri);
+            var result = GetWebPage(uri);
 
 
             var reader = new StringReader(result);
@@ -27,7 +27,11 @@ namespace UltraPlayProject.Persistence
 
             ClearDatabase(db);
 
+            UpdateDatabaseAllTheTime(db, sportDto, sports);
+        }
 
+        private static void UpdateDatabaseAllTheTime(UltraPlayProjectContext db, ImportSportDTO[]? sportDto, List<Sport> sports)
+        {
             foreach (var dto in sportDto)
             {
                 //SPORT
@@ -49,7 +53,7 @@ namespace UltraPlayProject.Persistence
                         IsLive = even.IsLive,
                         CategoryID = even.CategoryID,
                     };
-                    
+
 
                     foreach (var match in even.Matches)
                     {
@@ -63,7 +67,7 @@ namespace UltraPlayProject.Persistence
                             StartDate = match.StartDate,
                             MatchType = matchType,
                         };
-                        
+
 
                         foreach (var bet in match.Bets)
                         {
@@ -83,7 +87,7 @@ namespace UltraPlayProject.Persistence
                                     ID = odd.ID,
                                     Name = odd.Name,
                                     Value = odd.Value,
-                                    SpecialBetValue = odd.SpecialBetValue.HasValue ? odd.SpecialBetValue.Value : null,
+                                    SpecialBetValue = odd.SpecialBetValue != null ? odd.SpecialBetValue : null,
                                 };
                                 bt.Odds.Add(dd);
                             }
