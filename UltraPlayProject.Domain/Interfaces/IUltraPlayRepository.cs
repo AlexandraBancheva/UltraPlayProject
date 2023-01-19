@@ -8,5 +8,7 @@ namespace UltraPlayProject.Domain.Interfaces
         void GetDataFromXmlFile();
 
         List<ExportMatchDTO> GetAllMatchesNext24Hours();
+
+        ExportMatchByIdDTO GetAllMatchesById(int id);
     }
 }

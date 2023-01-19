@@ -29,7 +29,7 @@ namespace UltraPlayProject.Persistence
             FillTheDatabase(db, sportDto, sports);
         }
 
-        private void FillTheDatabase(UltraPlayProjectContext db, ImportSportDTO[]? sportDto, List<Sport> sports)
+        private static void FillTheDatabase(UltraPlayProjectContext db, ImportSportDTO[]? sportDto, List<Sport> sports)
         {
             foreach (var dto in sportDto)
             {
@@ -102,7 +102,7 @@ namespace UltraPlayProject.Persistence
             db.SaveChanges();
         }
 
-        private void ClearDatabase(UltraPlayProjectContext db)
+        private static void ClearDatabase(UltraPlayProjectContext db)
         {
             db.Odds.RemoveRange(db.Odds.ToList());
             db.Bets.RemoveRange(db.Bets.ToList());
@@ -165,6 +165,47 @@ namespace UltraPlayProject.Persistence
                 }
             }
             return matchWithSpecialBetValue;
+        }
+
+        public ExportMatchByIdDTO GetAllMatchesById(int id)
+        {
+            var db = new UltraPlayProjectContext();
+            var matchById = db.Matches.Where(m => m.ID == id)
+                .Select(m => new ExportMatchByIdDTO
+                {
+                    Name = m.Name,
+                    StartDate = m.StartDate,
+                    ActiveMarkets = m.Bets.Where(b => b.IsLive == true)
+                                          .Select(ab => new ExportActiveMarketsByMatchId
+                                          {
+                                              Name = ab.Name,
+                                              IsLive = ab.IsLive,
+                                              ID = ab.ID,
+                                              Odds = ab.Odds.Select(o => new ExportOddsDTO
+                                              {
+                                                  Name = o.Name,
+                                                  ID = o.ID,
+                                                  Value = o.Value,
+                                                  SpecialBetValue = o.SpecialBetValue,
+                                              }).ToList()
+                                          }).ToList(),
+                    InactiveMarkets = m.Bets.Where(b => b.IsLive == false)
+                                            .Select(ib => new ExportInactiveMarketsByMatchIdDTO
+                                            { 
+                                                Name = ib.Name,
+                                                ID = ib.ID,
+                                                IsLive = ib.IsLive,
+                                                Odds = ib.Odds.Select(o => new ExportOddsDTO
+                                                { 
+                                                    Name = o.Name,
+                                                    ID = o.ID,
+                                                    Value = o.Value,
+                                                    SpecialBetValue = o.SpecialBetValue
+                                                }).ToList()
+                                            }).ToList()
+                });
+
+            return (ExportMatchByIdDTO)matchById;
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace UltraPlayProject.Domain.DTOs.ExportDTOs
 {
-    public class ImportActiveMarketsByMatchIdDTO
+    public class ExportActiveMarketsByMatchId
     {
-        public ImportActiveMarketsByMatchIdDTO()
+        public ExportActiveMarketsByMatchId()
         {
             this.Odds = new List<ExportOddsDTO>();
         }

@@ -31,6 +31,7 @@ namespace UltraPlayProject.Controllers
         // Polymorphysm
         public IActionResult MatchByGivenUniqueIdentifier(int id) 
         {
+            _ultraPlayProjectService.GetMatchById(id);
             return Ok();
         }
     }

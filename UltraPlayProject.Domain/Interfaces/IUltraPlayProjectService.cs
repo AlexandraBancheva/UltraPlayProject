@@ -5,5 +5,7 @@ namespace UltraPlayProject.Domain.Interfaces
     public interface IUltraPlayProjectService
     {
         List<ExportMatchDTO> GetAllMarkets24Hours();
+
+        ExportMatchByIdDTO GetMatchById(int id);
     }
 }

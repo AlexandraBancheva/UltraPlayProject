@@ -20,5 +20,11 @@ namespace UltraPlayProject.Domain.Services
 
             return matches;
         }
+
+        public ExportMatchByIdDTO GetMatchById(int id)
+        {
+            var expectedMatchById = _ultraPlayRepository.GetAllMatchesById(id);
+            return expectedMatchById;
+        }
     }
 }
