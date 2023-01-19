@@ -151,7 +151,20 @@ namespace UltraPlayProject.Persistence
                                     }).ToList()
                                 }).ToList()
                 }).ToList();
-            return matches;
+
+
+            var matchWithSpecialBetValue = new List<ExportMatchDTO>();
+            foreach (var match in matches)
+            {
+                foreach (var bet in match.Markets)
+                {
+                    if (bet.IsLive)
+                    {
+                        matchWithSpecialBetValue.Add(match);
+                    }
+                }
+            }
+            return matchWithSpecialBetValue;
         }
     }
 }

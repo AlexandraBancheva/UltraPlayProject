@@ -29,7 +29,7 @@ namespace UltraPlayProject.Controllers
         //iii.match's active markets with all their active odds
         //iv.match's inactive markets with their odds
         // Polymorphysm
-        public IActionResult MatchByGivenUniqueIdentifier(string id) 
+        public IActionResult MatchByGivenUniqueIdentifier(int id) 
         {
             return Ok();
         }
