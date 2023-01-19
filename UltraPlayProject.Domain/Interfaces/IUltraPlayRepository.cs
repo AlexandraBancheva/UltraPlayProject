@@ -1,11 +1,12 @@
-﻿using UltraPlayProject.Domain.Entities;
+﻿using UltraPlayProject.Domain.DTOs.ExportDTOs;
+using UltraPlayProject.Domain.Entities;
 
 namespace UltraPlayProject.Domain.Interfaces
 {
     public interface IUltraPlayRepository
     {
-        void UpdateDatabase();
+        void GetDataFromXmlFile();
 
-        List<Match> GetAllMatchesLast24Hours();
+        List<ExportMatchDTO> GetAllMatchesNext24Hours();
     }
 }

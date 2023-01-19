@@ -2,6 +2,7 @@
 using System.Text;
 using System.Xml.Serialization;
 using UltraPlayProject.Domain.DTOs;
+using UltraPlayProject.Domain.DTOs.ExportDTOs;
 using UltraPlayProject.Domain.Entities;
 using UltraPlayProject.Domain.Interfaces;
 
@@ -9,14 +10,14 @@ namespace UltraPlayProject.Persistence
 {
     public class UltraPlayProjectRepository : IUltraPlayRepository
     {
-        public void UpdateDatabase()
+        public void GetDataFromXmlFile()
         {
             var db = new UltraPlayProjectContext();
             Uri uri = new Uri("https://sports.ultraplay.net/sportsxml?clientKey=9C5E796D-4D54-42FD-A535-D7E77906541A&sportId=2357&days=7");
-            var result = GetWebPage(uri);
+            var downloadedXmlFile = GetWebPage(uri);
 
 
-            var reader = new StringReader(result);
+            var reader = new StringReader(downloadedXmlFile);
             XmlRootAttribute xRoot = new XmlRootAttribute();
             xRoot.ElementName = "XmlSports";
             xRoot.IsNullable = true;
@@ -24,13 +25,11 @@ namespace UltraPlayProject.Persistence
             var sportDto = (ImportSportDTO[])serializer.Deserialize(reader);
 
             var sports = new List<Sport>();
-
             ClearDatabase(db);
-
-            UpdateDatabaseAllTheTime(db, sportDto, sports);
+            FillTheDatabase(db, sportDto, sports);
         }
 
-        private static void UpdateDatabaseAllTheTime(UltraPlayProjectContext db, ImportSportDTO[]? sportDto, List<Sport> sports)
+        private void FillTheDatabase(UltraPlayProjectContext db, ImportSportDTO[]? sportDto, List<Sport> sports)
         {
             foreach (var dto in sportDto)
             {
@@ -128,12 +127,30 @@ namespace UltraPlayProject.Persistence
             }
         }
 
-        public List<Match> GetAllMatchesLast24Hours()
+        public List<ExportMatchDTO> GetAllMatchesNext24Hours()
         {
             var db = new UltraPlayProjectContext();
-            var matches = db.Matches.Where(m => m.StartDate.AddDays(1) >= DateTime.UtcNow).ToList();
-            matches.Where(m => m.Bets.Any(b => b.IsLive == true));
-
+            var matches = db.Matches
+                .Where(m => m.StartDate <= DateTime.Now.AddHours(24))
+                .Select(m => new ExportMatchDTO
+                {
+                    StartDate = m.StartDate,
+                    Name = m.Name,
+                    Markets = m.Bets
+                                .Select(ma => new ExportMarketsDTO
+                                {
+                                    ID = ma.ID,
+                                    Name = ma.Name,
+                                    IsLive = ma.IsLive,
+                                    Odds = ma.Odds.Select(o => new ExportOddsDTO
+                                    {
+                                        ID = o.ID,
+                                        Name = o.Name,
+                                        Value = o.Value,
+                                        SpecialBetValue = o.SpecialBetValue,
+                                    }).ToList()
+                                }).ToList()
+                }).ToList();
             return matches;
         }
     }

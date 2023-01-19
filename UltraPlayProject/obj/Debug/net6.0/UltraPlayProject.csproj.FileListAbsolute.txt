@@ -75,3 +75,4 @@ D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\UltraPlayProject.D
 D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\UltraPlayProject.Persistence.dll
 D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\UltraPlayProject.Domain.pdb
 D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\UltraPlayProject.Persistence.pdb
+D:\Sources\UltraPlayProject\UltraPlayProject\obj\Debug\net6.0\UltraPlayProject.MvcApplicationPartsAssemblyInfo.cs

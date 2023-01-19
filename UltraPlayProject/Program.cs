@@ -1,4 +1,5 @@
 using UltraPlayProject.Domain.Interfaces;
+using UltraPlayProject.Domain.Services;
 using UltraPlayProject.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUltraPlayRepository, UltraPlayProjectRepository>();
+builder.Services.AddTransient<IUltraPlayProjectService, UltraPlayProjectService>();
 
 var app = builder.Build();
 

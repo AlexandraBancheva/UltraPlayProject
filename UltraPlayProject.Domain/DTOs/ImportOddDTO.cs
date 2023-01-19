@@ -14,7 +14,6 @@ namespace UltraPlayProject.Domain.DTOs
         [XmlAttribute("Value")]
         public double Value { get; set; }
 
-        // [XmlElement(IsNullable = true)]
         [XmlAttribute("SpecialBetValue")]
         public double SpecialBetValue { get; set; }
     }

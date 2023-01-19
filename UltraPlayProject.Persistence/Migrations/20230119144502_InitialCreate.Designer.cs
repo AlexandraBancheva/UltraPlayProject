@@ -12,7 +12,7 @@ using UltraPlayProject.Persistence;
 namespace UltraPlayProject.Persistence.Migrations
 {
     [DbContext(typeof(UltraPlayProjectContext))]
-    [Migration("20230118184406_InitialCreate")]
+    [Migration("20230119144502_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
