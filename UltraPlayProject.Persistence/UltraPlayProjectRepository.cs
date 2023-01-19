@@ -24,12 +24,9 @@ namespace UltraPlayProject.Persistence
             var sportDto = (ImportSportDTO[])serializer.Deserialize(reader);
 
             var sports = new List<Sport>();
-            var events = new List<Event>();
-            var matches = new List<Match>();
-            var bets = new List<Bet>();
-            var odds = new List<Odd>();
 
-            //db.Database.EnsureDeleted();
+            ClearDatabase(db);
+
 
             foreach (var dto in sportDto)
             {
@@ -86,28 +83,29 @@ namespace UltraPlayProject.Persistence
                                     ID = odd.ID,
                                     Name = odd.Name,
                                     Value = odd.Value,
-                                    SpecialBetValue = odd.SpecialBetValue,
+                                    SpecialBetValue = odd.SpecialBetValue.HasValue ? odd.SpecialBetValue.Value : null,
                                 };
                                 bt.Odds.Add(dd);
-                                odds.Add(dd);
                             }
-                            bets.Add(bt);
                             mtch.Bets.Add(bt);
                         }
-                        matches.Add(mtch);
                         evnt.Matches.Add(mtch);
                     }
-                    events.Add(evnt);
                     sport.Events.Add(evnt);
                 }
-
                 sports.Add(sport);
             }
-            db.Odds.AddRange(odds);
-            db.Bets.AddRange(bets);
-            db.Matches.AddRange(matches);
-            db.Events.AddRange(events);
             db.Sports.AddRange(sports);
+            db.SaveChanges();
+        }
+
+        private void ClearDatabase(UltraPlayProjectContext db)
+        {
+            db.Odds.RemoveRange(db.Odds.ToList());
+            db.Bets.RemoveRange(db.Bets.ToList());
+            db.Matches.RemoveRange(db.Matches.ToList());
+            db.Events.RemoveRange(db.Events.ToList());
+            db.Sports.RemoveRange(db.Sports.ToList());
             db.SaveChanges();
         }
 
