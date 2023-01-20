@@ -203,9 +203,9 @@ namespace UltraPlayProject.Persistence
                                                     SpecialBetValue = o.SpecialBetValue
                                                 }).ToList()
                                             }).ToList()
-                });
+                }).FirstOrDefault();
 
-            return (ExportMatchByIdDTO)matchById;
+            return matchById;
         }
     }
 }
