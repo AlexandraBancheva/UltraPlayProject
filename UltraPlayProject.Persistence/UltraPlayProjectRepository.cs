@@ -153,18 +153,26 @@ namespace UltraPlayProject.Persistence
                 }).ToList();
 
 
-            var matchWithSpecialBetValue = new List<ExportMatchDTO>();
+            var activeMatches = new List<ExportMatchDTO>();
             foreach (var match in matches)
             {
                 foreach (var bet in match.Markets)
                 {
-                    if (bet.IsLive)
+                    if ((bet.Name == "Match Winner" || bet.Name == "Map Advantage" || bet.Name == "Total Maps Played") && bet.IsLive)
                     {
-                        matchWithSpecialBetValue.Add(match);
+                        if (bet.Odds.All(o => o.SpecialBetValue != 0))
+                        {
+
+                        }
+                        activeMatches.Add(match);
                     }
                 }
             }
-            return matchWithSpecialBetValue;
+
+            var matchesResult = new List<ExportMatchDTO>();
+            
+
+            return activeMatches;
         }
 
         public ExportMatchByIdDTO GetAllMatchesById(int id)

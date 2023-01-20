@@ -1,5 +1,4 @@
 ﻿using UltraPlayProject.Domain.DTOs.ExportDTOs;
-using UltraPlayProject.Domain.Entities;
 using UltraPlayProject.Domain.Interfaces;
 
 namespace UltraPlayProject.Domain.Services
@@ -15,9 +14,7 @@ namespace UltraPlayProject.Domain.Services
 
         public List<ExportMatchDTO> GetAllMarkets24Hours()
         {
-            var matches = _ultraPlayRepository.GetAllMatchesNext24Hours();
-            
-
+            var matches = _ultraPlayRepository.GetAllMatchesNext24Hours();          
             return matches;
         }
 

@@ -19,17 +19,12 @@ namespace UltraPlayProject.Controllers
         public IActionResult AllMatchesStartingBy24Hours()
         {
            // _ultraPlayRepository.GetDataFromXmlFile();
-            _ultraPlayProjectService.GetAllMarkets24Hours();
-            return Ok();
+            var result = _ultraPlayProjectService.GetAllMarkets24Hours().ToList();
+            return Ok(result);
         }
 
         [HttpGet("id")]
-        //i.match name
-        //ii.match start date
-        //iii.match's active markets with all their active odds
-        //iv.match's inactive markets with their odds
-        // Polymorphysm
-        public IActionResult MatchByGivenUniqueIdentifier(int id) 
+        public IActionResult MatchByGivenUniqueIdentifier([FromQuery] int id) 
         {
             _ultraPlayProjectService.GetMatchById(id);
             return Ok();
