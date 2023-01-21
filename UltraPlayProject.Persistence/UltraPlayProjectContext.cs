@@ -24,7 +24,7 @@ namespace UltraPlayProject.Persistence
 
         public DbSet<Odd> Odds { get; set; }
 
-       public DbSet<Nlog> Nlogs { get; set; }
+       public DbSet<DatabaseLog> DatabaseLogs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

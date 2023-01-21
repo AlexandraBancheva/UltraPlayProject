@@ -216,15 +216,15 @@ namespace UltraPlayProject.Persistence
             return matchById;
         }
 
-        public void AddData()
+        public void AddMessageToDatabase()
         {
             var db = new UltraPlayProjectContext();
-            var data = new Nlog
+            var data = new DatabaseLog
             {
                 Date = DateTime.Now,
                 Message = "Database was updated.",
             };
-            db.Nlogs.Add(data);
+            db.DatabaseLogs.Add(data);
             db.SaveChanges();
         }
     }

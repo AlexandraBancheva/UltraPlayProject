@@ -11,6 +11,6 @@ namespace UltraPlayProject.Domain.Interfaces
 
         ExportMatchByIdDTO GetAllMatchesById(int id);
 
-        void AddData();
+        void AddMessageToDatabase();
     }
 }

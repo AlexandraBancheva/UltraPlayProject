@@ -2,7 +2,7 @@
 
 namespace UltraPlayProject.Domain.Entities
 {
-    public class Nlog
+    public class DatabaseLog
     {
         [Key]
         public int ID { get; set; }

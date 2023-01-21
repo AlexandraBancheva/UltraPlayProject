@@ -44,6 +44,26 @@ namespace UltraPlayProject.Persistence.Migrations
                     b.ToTable("Bets");
                 });
 
+            modelBuilder.Entity("UltraPlayProject.Domain.Entities.DatabaseLog", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("DatabaseLogs");
+                });
+
             modelBuilder.Entity("UltraPlayProject.Domain.Entities.Event", b =>
                 {
                     b.Property<int>("ID")
@@ -92,26 +112,6 @@ namespace UltraPlayProject.Persistence.Migrations
                     b.HasIndex("EventID");
 
                     b.ToTable("Matches");
-                });
-
-            modelBuilder.Entity("UltraPlayProject.Domain.Entities.Nlog", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Nlogs");
                 });
 
             modelBuilder.Entity("UltraPlayProject.Domain.Entities.Odd", b =>
