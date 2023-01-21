@@ -27,12 +27,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapGet("/background", (
-    PeriodicHostedService service) =>
-{
-    return new PeriodicHostedServiceState(service.IsEnabled);
-});
-app.MapMethods("/background", new[] { "PATCH" }, (
+app.MapMethods("/background", new[] { "PATCH" }, 
+(
     PeriodicHostedServiceState state,
     PeriodicHostedService service) =>
 {
@@ -40,6 +36,8 @@ app.MapMethods("/background", new[] { "PATCH" }, (
 });
 
 app.UseHttpsRedirection();
+
+app.UseRouting();
 
 app.UseAuthorization();
 

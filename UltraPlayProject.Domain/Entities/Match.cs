@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using UltraPlayProject.Domain.Enum;
 
 namespace UltraPlayProject.Domain.Entities
 {
@@ -17,7 +17,7 @@ namespace UltraPlayProject.Domain.Entities
 
         public DateTime StartDate { get; set; }
 
-        public MatchType MatchType { get; set; }
+        public MatchTypeEvent MatchType { get; set; }
 
         public ICollection<Bet> Bets { get; set; }
     }

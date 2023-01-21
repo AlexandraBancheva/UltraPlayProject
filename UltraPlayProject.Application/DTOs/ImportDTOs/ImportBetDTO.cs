@@ -1,9 +1,9 @@
 ﻿using System.Xml.Serialization;
 
-namespace UltraPlayProject.Domain.DTOs
+namespace UltraPlayProject.Application.DTOs.ImportDTOs
 {
-    [XmlType("Event")]
-    public class ImportEventDTO
+    [XmlType("Bet")]
+    public class ImportBetDTO
     {
         [XmlAttribute("Name")]
         public string Name { get; set; }
@@ -14,10 +14,7 @@ namespace UltraPlayProject.Domain.DTOs
         [XmlAttribute("IsLive")]
         public bool IsLive { get; set; }
 
-        [XmlAttribute("CategoryID")]
-        public int CategoryID { get; set; }
-
-        [XmlElement("Match")]
-        public ImportMatchDTO[] Matches { get; set; }
+        [XmlElement("Odd")]
+        public ImportOddDTO[] Odds { get; set; }
     }
 }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltraPlayProject", "UltraPlayProject\UltraPlayProject.csproj", "{7073A28B-4F6F-4D78-A724-65B0120674B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UltraPlayProject", "UltraPlayProject\UltraPlayProject.csproj", "{7073A28B-4F6F-4D78-A724-65B0120674B4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{754990D2-D5B1-4FD9-A7F8-583B904933BE}"
 EndProject
@@ -11,9 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{ED31D52F-575A-46F8-AED1-B7FEE6C3BDA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltraPlayProject.Domain", "UltraPlayProject.Domain\UltraPlayProject.Domain.csproj", "{DB3DE8C4-7437-4A52-B6D4-AFA5D7F99151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UltraPlayProject.Domain", "UltraPlayProject.Domain\UltraPlayProject.Domain.csproj", "{DB3DE8C4-7437-4A52-B6D4-AFA5D7F99151}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltraPlayProject.Persistence", "UltraPlayProject.Persistence\UltraPlayProject.Persistence.csproj", "{D6406BAD-495F-4F96-B6A1-475035496D2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UltraPlayProject.Persistence", "UltraPlayProject.Persistence\UltraPlayProject.Persistence.csproj", "{D6406BAD-495F-4F96-B6A1-475035496D2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltraPlayProject.Application", "UltraPlayProject.Application\UltraPlayProject.Application.csproj", "{8F134163-E2BC-4C19-9209-F845E38BDD15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D6406BAD-495F-4F96-B6A1-475035496D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6406BAD-495F-4F96-B6A1-475035496D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6406BAD-495F-4F96-B6A1-475035496D2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F134163-E2BC-4C19-9209-F845E38BDD15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F134163-E2BC-4C19-9209-F845E38BDD15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F134163-E2BC-4C19-9209-F845E38BDD15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F134163-E2BC-4C19-9209-F845E38BDD15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{7073A28B-4F6F-4D78-A724-65B0120674B4} = {754990D2-D5B1-4FD9-A7F8-583B904933BE}
 		{DB3DE8C4-7437-4A52-B6D4-AFA5D7F99151} = {ED31D52F-575A-46F8-AED1-B7FEE6C3BDA5}
 		{D6406BAD-495F-4F96-B6A1-475035496D2C} = {B577C110-094E-4BAE-8E7A-73AABAE76C1A}
+		{8F134163-E2BC-4C19-9209-F845E38BDD15} = {ED31D52F-575A-46F8-AED1-B7FEE6C3BDA5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {32310FBC-3FD9-4CEF-9A48-EEE9CEB9ED6D}

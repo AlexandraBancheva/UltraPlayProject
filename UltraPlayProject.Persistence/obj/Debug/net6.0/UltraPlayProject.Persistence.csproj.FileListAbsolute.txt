@@ -15,3 +15,5 @@ D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\refint
 D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\UltraPlayProject.Persistence.pdb
 D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\UltraPlayProject.Persistence.genruntimeconfig.cache
 D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\ref\UltraPlayProject.Persistence.dll
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Application.dll
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Application.pdb

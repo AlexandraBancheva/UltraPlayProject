@@ -1,5 +1,4 @@
 ﻿using UltraPlayProject.Domain.DTOs.ExportDTOs;
-using UltraPlayProject.Domain.Entities;
 
 namespace UltraPlayProject.Domain.Interfaces
 {

@@ -4,7 +4,7 @@ using UltraPlayProject.Domain.Interfaces;
 namespace UltraPlayProject.Controllers
 {
     [ApiController]
-    [Route("api/UltraPlay")]
+    [Route("api/[controller]")]
     public class UltraPlayController : ControllerBase
     {
         public readonly IUltraPlayProjectService _ultraPlayProjectService;
@@ -21,7 +21,7 @@ namespace UltraPlayProject.Controllers
             return Ok(result);
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public IActionResult MatchByGivenUniqueIdentifier([FromQuery] int id) 
         {
             var result = _ultraPlayProjectService.GetMatchById(id);

@@ -13,6 +13,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.2",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.2",
           "Microsoft.Extensions.Hosting.Abstractions": "7.0.0",
+          "UltraPlayProject.Application": "1.0.0",
           "UltraPlayProject.Domain": "1.0.0"
         },
         "runtime": {
@@ -726,6 +727,11 @@
           }
         }
       },
+      "UltraPlayProject.Application/1.0.0": {
+        "runtime": {
+          "UltraPlayProject.Application.dll": {}
+        }
+      },
       "UltraPlayProject.Domain/1.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "7.0.0"
@@ -1231,6 +1237,11 @@
       "sha512": "sha512-c1ho9WU9ZxMZawML+ssPKZfdnrg/OjR3pe0m9v8230z3acqphwvPJqzAkH54xRYm5ntZHGG1EPP3sux9H3qSPg==",
       "path": "system.windows.extensions/5.0.0",
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
+    },
+    "UltraPlayProject.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "UltraPlayProject.Domain/1.0.0": {
       "type": "project",

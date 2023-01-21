@@ -1,7 +1,6 @@
 ﻿using System.Xml.Serialization;
-using UltraPlayProject.Domain.Entities;
 
-namespace UltraPlayProject.Domain.DTOs
+namespace UltraPlayProject.Application.DTOs.ImportDTOs
 {
     [XmlType("Sport")]
     public class ImportSportDTO

@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace UltraPlayProject.Domain.DTOs
+namespace UltraPlayProject.Application.DTOs.ImportDTOs
 {
     [XmlType("Odd")]
     public class ImportOddDTO

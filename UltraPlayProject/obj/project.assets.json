@@ -1174,6 +1174,16 @@
           }
         }
       },
+      "UltraPlayProject.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/UltraPlayProject.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UltraPlayProject.Application.dll": {}
+        }
+      },
       "UltraPlayProject.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1194,6 +1204,7 @@
           "Microsoft.EntityFrameworkCore": "7.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.2",
           "Microsoft.Extensions.Hosting.Abstractions": "7.0.0",
+          "UltraPlayProject.Application": "1.0.0",
           "UltraPlayProject.Domain": "1.0.0"
         },
         "compile": {
@@ -3552,6 +3563,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "UltraPlayProject.Application/1.0.0": {
+      "type": "project",
+      "path": "../UltraPlayProject.Application/UltraPlayProject.Application.csproj",
+      "msbuildProject": "../UltraPlayProject.Application/UltraPlayProject.Application.csproj"
     },
     "UltraPlayProject.Domain/1.0.0": {
       "type": "project",

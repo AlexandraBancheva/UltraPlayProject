@@ -75,6 +75,8 @@ D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\UltraPlayProject.D
 D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\UltraPlayProject.Persistence.dll
 D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\UltraPlayProject.Domain.pdb
 D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\UltraPlayProject.Persistence.pdb
-D:\Sources\UltraPlayProject\UltraPlayProject\obj\Debug\net6.0\UltraPlayProject.MvcApplicationPartsAssemblyInfo.cs
 D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
 D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\Microsoft.Extensions.Hosting.Abstractions.dll
+D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\UltraPlayProject.Application.dll
+D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\UltraPlayProject.Application.pdb
+D:\Sources\UltraPlayProject\UltraPlayProject\obj\Debug\net6.0\UltraPlayProject.MvcApplicationPartsAssemblyInfo.cs

@@ -1196,6 +1196,16 @@
           }
         }
       },
+      "UltraPlayProject.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/UltraPlayProject.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UltraPlayProject.Application.dll": {}
+        }
+      },
       "UltraPlayProject.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3610,6 +3620,11 @@
         "version.txt"
       ]
     },
+    "UltraPlayProject.Application/1.0.0": {
+      "type": "project",
+      "path": "../UltraPlayProject.Application/UltraPlayProject.Application.csproj",
+      "msbuildProject": "../UltraPlayProject.Application/UltraPlayProject.Application.csproj"
+    },
     "UltraPlayProject.Domain/1.0.0": {
       "type": "project",
       "path": "../UltraPlayProject.Domain/UltraPlayProject.Domain.csproj",
@@ -3623,6 +3638,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.2",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.2",
       "Microsoft.Extensions.Hosting.Abstractions >= 7.0.0",
+      "UltraPlayProject.Application >= 1.0.0",
       "UltraPlayProject.Domain >= 1.0.0"
     ]
   },
@@ -3659,6 +3675,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "D:\\Sources\\UltraPlayProject\\UltraPlayProject.Application\\UltraPlayProject.Application.csproj": {
+              "projectPath": "D:\\Sources\\UltraPlayProject\\UltraPlayProject.Application\\UltraPlayProject.Application.csproj"
+            },
             "D:\\Sources\\UltraPlayProject\\UltraPlayProject.Domain\\UltraPlayProject.Domain.csproj": {
               "projectPath": "D:\\Sources\\UltraPlayProject\\UltraPlayProject.Domain\\UltraPlayProject.Domain.csproj"
             }

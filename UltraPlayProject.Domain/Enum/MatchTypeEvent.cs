@@ -1,6 +1,6 @@
 ﻿namespace UltraPlayProject.Domain.Enum
 {
-    public enum MatchType
+    public enum MatchTypeEvent
     {
         PreMatch = 0,
         Live = 1,

@@ -1,9 +1,10 @@
 ﻿using System.Net;
 using System.Text;
 using System.Xml.Serialization;
-using UltraPlayProject.Domain.DTOs;
+using UltraPlayProject.Application.DTOs.ImportDTOs;
 using UltraPlayProject.Domain.DTOs.ExportDTOs;
 using UltraPlayProject.Domain.Entities;
+using UltraPlayProject.Domain.Enum;
 using UltraPlayProject.Domain.Interfaces;
 
 namespace UltraPlayProject.Persistence
@@ -57,7 +58,8 @@ namespace UltraPlayProject.Persistence
                     foreach (var match in even.Matches)
                     {
                         //MATCH
-                        Enum.TryParse(match.MatchType, out MatchType matchType);
+                        MatchTypeEvent matchType;
+                        Enum.TryParse(match.MatchType, out matchType);
 
                         var mtch = new Match
                         {
@@ -160,10 +162,9 @@ namespace UltraPlayProject.Persistence
                 {
                     if ((bet.Name == "Match Winner" || bet.Name == "Map Advantage" || bet.Name == "Total Maps Played") && bet.IsLive)
                     {
-                        if (bet.Odds.All(o => o.SpecialBetValue != 0))
-                        {
-
-                        }
+                        //if (bet.Odds.All(o => o.SpecialBetValue != 0))
+                        //{
+                        //}
                         activeMatches.Add(match);
                     }
                 }

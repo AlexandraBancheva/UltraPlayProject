@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\UltraPlayProject.Application\UltraPlayProject.Application.csproj" />
     <ProjectReference Include="..\UltraPlayProject.Domain\UltraPlayProject.Domain.csproj" />
   </ItemGroup>
 
