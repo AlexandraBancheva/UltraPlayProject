@@ -8,17 +8,15 @@ namespace UltraPlayProject.Controllers
     public class UltraPlayController : ControllerBase
     {
         public readonly IUltraPlayProjectService _ultraPlayProjectService;
-        public readonly IUltraPlayRepository _ultraPlayRepository;
-        public UltraPlayController(IUltraPlayProjectService ultraPlayProjectService, IUltraPlayRepository ultraPlayRepository)
+
+        public UltraPlayController(IUltraPlayProjectService ultraPlayProjectService)
         {
             _ultraPlayProjectService = ultraPlayProjectService;
-            _ultraPlayRepository = ultraPlayRepository;
         }
 
         [HttpGet]
         public IActionResult AllMatchesStartingBy24Hours()
         {
-           // _ultraPlayRepository.GetDataFromXmlFile();
             var result = _ultraPlayProjectService.GetAllMarkets24Hours().ToList();
             return Ok(result);
         }
@@ -26,8 +24,8 @@ namespace UltraPlayProject.Controllers
         [HttpGet("id")]
         public IActionResult MatchByGivenUniqueIdentifier([FromQuery] int id) 
         {
-            _ultraPlayProjectService.GetMatchById(id);
-            return Ok();
+            var result = _ultraPlayProjectService.GetMatchById(id);
+            return Ok(result);
         }
     }
 }

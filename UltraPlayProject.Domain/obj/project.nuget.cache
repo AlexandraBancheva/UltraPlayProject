@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "9go6JqiDBaoHA+2wnmtrxnIEsZ4by+4A9M84XiEhu9lT1GZHg7ghi5cv6BDjLjTXjO3MSrNd+fAkVBcymBLZ/Q==",
+  "dgSpecHash": "41264E0mQpjzVIERr/DJLr6pDfEFSC0zoQqcFJakCjXQhmHyxtWxLZY+8ft578Scr0cUhYRnuKANiVEGKsiKIg==",
   "success": true,
   "projectFilePath": "D:\\Sources\\UltraPlayProject\\UltraPlayProject.Domain\\UltraPlayProject.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Alex\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
