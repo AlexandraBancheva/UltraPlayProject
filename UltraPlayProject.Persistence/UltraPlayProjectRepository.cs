@@ -215,5 +215,17 @@ namespace UltraPlayProject.Persistence
 
             return matchById;
         }
+
+        public void AddData()
+        {
+            var db = new UltraPlayProjectContext();
+            var data = new Nlog
+            {
+                Date = DateTime.Now,
+                Message = "Database was updated.",
+            };
+            db.Nlogs.Add(data);
+            db.SaveChanges();
+        }
     }
 }

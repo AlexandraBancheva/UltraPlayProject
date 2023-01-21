@@ -1,0 +1,40 @@
+2023-01-21 20:08:58.7795 Info Message Template Auto Format enabled
+2023-01-21 20:08:58.8616 Info Loading assembly: NLog.Web.AspNetCore
+2023-01-21 20:08:58.8963 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target of type: Database
+ ---> System.ArgumentException: Target type-alias is unknown: 'Database'. Extension NLog.Database not included?
+   at NLog.Config.Factory`2.CreateInstance(String itemName)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String classType, INamedItemFactory`2 factory)
+   --- End of inner exception stack trace ---
+2023-01-21 20:08:58.9906 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'UltraPlayDb' not found for logging rule: *.
+2023-01-21 20:08:59.0371 Info Validating config: Targets=0, ConfigItems=2, FilePath=D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\NLog.config
+2023-01-21 20:08:59.1895 Info Loading NLog config from XML file: D:\Sources\UltraPlayProject\UltraPlayProject\NLog.config
+2023-01-21 20:08:59.1895 Info Message Template Auto Format enabled
+2023-01-21 20:08:59.1895 Info Loading assembly: NLog.Web.AspNetCore
+2023-01-21 20:08:59.1895 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target of type: Database
+ ---> System.ArgumentException: Target type-alias is unknown: 'Database'. Extension NLog.Database not included?
+   at NLog.Config.Factory`2.CreateInstance(String itemName)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String classType, INamedItemFactory`2 factory)
+   --- End of inner exception stack trace ---
+2023-01-21 20:08:59.1895 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'UltraPlayDb' not found for logging rule: *.
+2023-01-21 20:08:59.1895 Info Closing old configuration.
+2023-01-21 20:08:59.2110 Info Validating config: Targets=0, ConfigItems=2, FilePath=D:\Sources\UltraPlayProject\UltraPlayProject\NLog.config
+2023-01-21 20:12:15.0222 Info Message Template Auto Format enabled
+2023-01-21 20:12:15.0570 Info Loading assembly: NLog.Web.AspNetCore
+2023-01-21 20:12:15.1086 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target of type: Database
+ ---> System.ArgumentException: Target type-alias is unknown: 'Database'. Extension NLog.Database not included?
+   at NLog.Config.Factory`2.CreateInstance(String itemName)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String classType, INamedItemFactory`2 factory)
+   --- End of inner exception stack trace ---
+2023-01-21 20:12:15.1659 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'UltraPlayDb' not found for logging rule: *.
+2023-01-21 20:12:15.2169 Info Validating config: Targets=0, ConfigItems=2, FilePath=D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\NLog.config
+2023-01-21 20:12:15.3958 Info Loading NLog config from XML file: D:\Sources\UltraPlayProject\UltraPlayProject\NLog.config
+2023-01-21 20:12:15.3958 Info Message Template Auto Format enabled
+2023-01-21 20:12:15.3958 Info Loading assembly: NLog.Web.AspNetCore
+2023-01-21 20:12:15.3958 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target of type: Database
+ ---> System.ArgumentException: Target type-alias is unknown: 'Database'. Extension NLog.Database not included?
+   at NLog.Config.Factory`2.CreateInstance(String itemName)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String classType, INamedItemFactory`2 factory)
+   --- End of inner exception stack trace ---
+2023-01-21 20:12:15.3958 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'UltraPlayDb' not found for logging rule: *.
+2023-01-21 20:12:15.3958 Info Closing old configuration.
+2023-01-21 20:12:15.4193 Info Validating config: Targets=0, ConfigItems=2, FilePath=D:\Sources\UltraPlayProject\UltraPlayProject\NLog.config

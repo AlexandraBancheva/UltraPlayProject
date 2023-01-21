@@ -78,3 +78,6 @@ D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\UltraPlayProject.P
 D:\Sources\UltraPlayProject\UltraPlayProject\obj\Debug\net6.0\UltraPlayProject.MvcApplicationPartsAssemblyInfo.cs
 D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
 D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\Microsoft.Extensions.Hosting.Abstractions.dll
+D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\NLog.dll
+D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\NLog.Extensions.Logging.dll
+D:\Sources\UltraPlayProject\UltraPlayProject\bin\Debug\net6.0\NLog.Web.AspNetCore.dll
