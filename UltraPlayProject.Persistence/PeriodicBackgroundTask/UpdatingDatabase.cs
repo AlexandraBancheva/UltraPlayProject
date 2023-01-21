@@ -6,7 +6,7 @@ namespace UltraPlayProject.Persistence.PeriodicBackgroundTask
     public class UpdatingDatabase
     {
         private readonly ILogger<UpdatingDatabase> _logger;
-        private IUltraPlayRepository _ultraPlayRepository;
+        private readonly IUltraPlayRepository _ultraPlayRepository;
 
         public UpdatingDatabase(ILogger<UpdatingDatabase> logger, IUltraPlayRepository ultraPlayRepository)
         {
@@ -16,7 +16,7 @@ namespace UltraPlayProject.Persistence.PeriodicBackgroundTask
 
         public async Task PopulateDatabase()
         {
-            await Task.Delay(6000);
+            await Task.Delay(60000);
             _ultraPlayRepository.GetDataFromXmlFile();
             _logger.LogInformation("Updating database.");
         }

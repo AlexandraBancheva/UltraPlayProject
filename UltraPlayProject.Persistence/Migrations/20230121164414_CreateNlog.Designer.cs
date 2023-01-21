@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UltraPlayProject.Persistence;
 
@@ -11,9 +12,11 @@ using UltraPlayProject.Persistence;
 namespace UltraPlayProject.Persistence.Migrations
 {
     [DbContext(typeof(UltraPlayProjectContext))]
-    partial class UltraPlayProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20230121164414_CreateNlog")]
+    partial class CreateNlog
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
