@@ -12,7 +12,7 @@ namespace UltraPlayProject.Domain.Services
             _ultraPlayRepository = ultraPlayRepository;
         }
 
-        public List<ExportMatchDTO> GetAllMarkets24Hours()
+        public List<ExportMatchDTO> GetAllMatchesStartingNext24H()
         {
             var matches = _ultraPlayRepository.GetAllMatchesNext24Hours();          
             return matches;

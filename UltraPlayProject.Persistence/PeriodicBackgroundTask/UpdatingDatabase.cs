@@ -16,9 +16,9 @@ namespace UltraPlayProject.Persistence.PeriodicBackgroundTask
 
         public async Task PopulateDatabase()
         {
-            await Task.Delay(60000);
+            await Task.Delay(100);
             _ultraPlayRepository.GetDataFromXmlFile();
-            _ultraPlayRepository.AddMessageToDatabase();
+            //_ultraPlayRepository.AddMessageToDatabase();
             _logger.LogInformation("Updating database.");
         }
     }

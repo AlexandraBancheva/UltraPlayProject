@@ -15,13 +15,13 @@ namespace UltraPlayProject.Controllers
         }
 
         [HttpGet]
-        public IActionResult AllMatchesStartingBy24Hours()
+        public IActionResult AllMatchingStartingNext24Hours()
         {
-            var result = _ultraPlayProjectService.GetAllMarkets24Hours().ToList();
+            var result = _ultraPlayProjectService.GetAllMatchesStartingNext24H();
             return Ok(result);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("id")]
         public IActionResult MatchByGivenUniqueIdentifier([FromQuery] int id) 
         {
             var result = _ultraPlayProjectService.GetMatchById(id);
