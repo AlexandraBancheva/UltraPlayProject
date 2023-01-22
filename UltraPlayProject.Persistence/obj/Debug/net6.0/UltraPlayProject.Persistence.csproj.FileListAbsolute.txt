@@ -2,7 +2,9 @@ D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraP
 D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Persistence.runtimeconfig.json
 D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Persistence.dll
 D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Persistence.pdb
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Application.dll
 D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Domain.dll
+D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Application.pdb
 D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Domain.pdb
 D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\UltraPlayProject.Persistence.csproj.AssemblyReference.cache
 D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\UltraPlayProject.Persistence.GeneratedMSBuildEditorConfig.editorconfig
@@ -15,5 +17,3 @@ D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\refint
 D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\UltraPlayProject.Persistence.pdb
 D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\UltraPlayProject.Persistence.genruntimeconfig.cache
 D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\obj\Debug\net6.0\ref\UltraPlayProject.Persistence.dll
-D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Application.dll
-D:\Sources\UltraPlayProject\UltraPlayProject.Persistence\bin\Debug\net6.0\UltraPlayProject.Application.pdb

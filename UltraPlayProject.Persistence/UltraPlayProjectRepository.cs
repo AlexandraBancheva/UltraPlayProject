@@ -38,23 +38,36 @@ namespace UltraPlayProject.Persistence
 
 
             var activeMatches = new List<ExportMatchDTO>();
+            var oddsWithSpecialBetValue = new List<ExportOddsDTO>();
+            bool isHasSpecialBetValue = false;
             foreach (var match in matches)
             {
                 foreach (var bet in match.Markets)
                 {
                     if ((bet.Name == "Match Winner" || bet.Name == "Map Advantage" || bet.Name == "Total Maps Played") && bet.IsLive)
                     {
-                        //if (bet.Odds.All(o => o.SpecialBetValue != 0))
-                        //{
-                        //}
+                        foreach (var odd in bet.Odds)
+                        {
+                            if (odd.SpecialBetValue != 0)
+                            {
+                                isHasSpecialBetValue = true;
+                                break;
+                            }
+                        }
+                        if (isHasSpecialBetValue)
+                        {
+                            var groupingBySpecialBetValue = bet.Odds.GroupBy(o => o.SpecialBetValue).ToList();
+                            var oddsSpecialValue = groupingBySpecialBetValue.SelectMany(group => group);
+                            oddsWithSpecialBetValue.AddRange(oddsSpecialValue.ToList());
+
+                            var firstGroup = oddsWithSpecialBetValue.FirstOrDefault();
+                            bet.Odds.Clear();
+                            bet.Odds.Add(firstGroup);
+                        }
                         activeMatches.Add(match);
                     }
                 }
             }
-
-            var matchesResult = new List<ExportMatchDTO>();
-
-
             return activeMatches;
         }
 
@@ -114,12 +127,17 @@ namespace UltraPlayProject.Persistence
             var sportDto = (ImportSportDTO[])serializer.Deserialize(reader);
 
             var sports = new List<Sport>();
-            var savedIds = new List<int>(); 
+            var savedIds = new List<int>();
             FillTheDatabase(db, sportDto, sports, savedIds);
         }
 
         private static void FillTheDatabase(UltraPlayProjectContext db, ImportSportDTO[]? sportDto, List<Sport> sports, List<int> savedIDs)
         {
+           // var events = new List<Event>();
+            var matches = new List<Match>();
+            var bets = new List<Bet>();
+            var odds = new List<Odd>();
+
             foreach (var dto in sportDto)
             {
                 //SPORT
@@ -177,11 +195,14 @@ namespace UltraPlayProject.Persistence
                                     Value = odd.Value,
                                     SpecialBetValue = odd.SpecialBetValue != null ? odd.SpecialBetValue : null,
                                 };
+                                odds.Add(dd);
                                 savedIDs.Add(dd.ID);
                                 bt.Odds.Add(dd);
                             }
+                            bets.Add(bt);
                             mtch.Bets.Add(bt);
                         }
+                        matches.Add(mtch);
                         evnt.Matches.Add(mtch);
                     }
                     sport.Events.Add(evnt);
@@ -189,7 +210,7 @@ namespace UltraPlayProject.Persistence
                 sports.Add(sport);
             }
 
-            CheckForRemovedIds(db, savedIDs);
+            CheckForRemovedIds(db, savedIDs, matches, bets, odds);
             ClearDatabase(db);
 
             db.Sports.AddRange(sports);
@@ -221,7 +242,7 @@ namespace UltraPlayProject.Persistence
             }
         }
 
-        private static void CheckForRemovedIds(UltraPlayProjectContext db, List<int> savedIDs) 
+        private static void CheckForRemovedIds(UltraPlayProjectContext db, List<int> savedIDs, List<Match> matches, List<Bet> bets, List<Odd> odds)
         {
             var removedIds = new List<int>();
             var allMatchIds = db.Matches.Where(m => db.Matches.Any(mt => mt.ID == m.ID)).Select(m => m.ID).ToList();
@@ -246,6 +267,8 @@ namespace UltraPlayProject.Persistence
                 }
             }
 
+           CheckIfNeedUpdate(db, existedIds, matches, bets, odds);
+
             foreach (var forRemove in existedIds)
             {
                 removedIds.Remove(forRemove);
@@ -255,6 +278,96 @@ namespace UltraPlayProject.Persistence
             {
                 AddMessageToDatabase(db, removedIds);
             }
+        }
+
+        public static void CheckIfNeedUpdate(UltraPlayProjectContext db, List<int> existedIds, List<Match> matches, List<Bet> bets, List<Odd> odds)
+        {
+            var logs = new List<DatabaseLog>();
+            foreach (var existedId in existedIds)
+            {
+                var newMatch = matches.Where(m => m.ID == existedId).FirstOrDefault();
+                var newBet = bets.Where(b => b.ID == existedId).FirstOrDefault();
+                var newOdd = odds.Where(o => o.ID == existedId).FirstOrDefault();
+
+
+                if (newMatch != null)
+                {
+                    var oldMatch = db.Matches.FirstOrDefault(m => m.ID == newMatch.ID);
+                    if (oldMatch.StartDate != newMatch.StartDate)
+                    {
+                        logs.Add(new DatabaseLog
+                        {
+                            Date = DateTime.Now,
+                            Message = "Match.StartDate was changed.",
+                        });
+                    }
+                    else if (oldMatch.Name != newMatch.Name)
+                    {
+                        logs.Add(new DatabaseLog
+                        {
+                            Date = DateTime.Now,
+                            Message = "Match.Name was changed.",
+                        });
+                    }
+                    else if (oldMatch.MatchType != newMatch.MatchType)
+                    {
+                        logs.Add(new DatabaseLog
+                        {
+                            Date = DateTime.Now,
+                            Message = "Match.MatchType was changed.",
+                        });
+                    }
+                }
+                else if (newBet != null)
+                {
+                    var oldBet = db.Bets.FirstOrDefault(b => b.ID == newBet.ID);
+                    if (oldBet.Name != newBet.Name)
+                    {
+                        logs.Add(new DatabaseLog
+                        {
+                            Date = DateTime.Now,
+                            Message = "Bet.Name was changed.",
+                        });
+                    }
+                    else if (oldBet.IsLive != newBet.IsLive)
+                    {
+                        logs.Add(new DatabaseLog
+                        {
+                            Date = DateTime.Now,
+                            Message = "Bet.IsLive was changed.",
+                        });
+                    }
+                }
+                else if (newOdd != null)
+                {
+                    var oldOdd = db.Odds.FirstOrDefault(o => o.ID == newOdd.ID);
+                    if (oldOdd.Name != newOdd.Name)
+                    {
+                        logs.Add(new DatabaseLog
+                        {
+                            Date = DateTime.Now,
+                            Message = "Odd.Name was changed.",
+                        });
+                    }
+                    else if (oldOdd.Value != newOdd.Value)
+                    {
+                        logs.Add(new DatabaseLog
+                        {
+                            Date = DateTime.Now,
+                            Message = "Odd.Value was changed.",
+                        });
+                    }
+                    else if (oldOdd.SpecialBetValue != newOdd.SpecialBetValue)
+                    {
+                        logs.Add(new DatabaseLog
+                        {
+                            Date = DateTime.Now,
+                            Message = "Odd.SpecialBetValue was changed.",
+                        });
+                    }
+                }
+            }
+            AddLogToDatabase(db, logs);
         }
 
         public static void AddMessageToDatabase(UltraPlayProjectContext db, List<int> removedIds)
@@ -269,6 +382,12 @@ namespace UltraPlayProject.Persistence
                 db.DatabaseLogs.Add(info);
                 db.SaveChanges();
             }
+        }
+
+        public static void AddLogToDatabase(UltraPlayProjectContext db, List<DatabaseLog> logs)
+        {
+            db.DatabaseLogs.AddRange(logs);
+            db.SaveChanges();
         }
     }
 }

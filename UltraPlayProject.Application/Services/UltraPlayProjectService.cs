@@ -14,8 +14,7 @@ namespace UltraPlayProject.Domain.Services
 
         public List<ExportMatchDTO> GetAllMatchesStartingNext24H()
         {
-            var matches = _ultraPlayRepository.GetAllMatchesNext24Hours();          
-            return matches;
+            return _ultraPlayRepository.GetAllMatchesNext24Hours();
         }
 
         public ExportMatchByIdDTO GetMatchById(int id)
