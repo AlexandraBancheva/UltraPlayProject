@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Builder;
 using UltraPlayProject.Application.Interfaces;
 using UltraPlayProject.Domain.Interfaces;
 using UltraPlayProject.Domain.Services;
@@ -12,7 +13,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddTransient<IUltraPlayRepository, UltraPlayProjectRepository>();
+builder.Services.AddTransient<IUltraPlayRepository, UltraPlayRepository>();
 builder.Services.AddTransient<IUltraPlayDatabaseRepository, UltraPlayDatabaseRepository>();
 builder.Services.AddTransient<IUltraPlayProjectService, UltraPlayProjectService>();
 

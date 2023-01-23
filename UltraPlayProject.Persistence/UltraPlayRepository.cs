@@ -3,7 +3,7 @@ using UltraPlayProject.Domain.Interfaces;
 
 namespace UltraPlayProject.Persistence
 {
-    public class UltraPlayProjectRepository : IUltraPlayRepository
+    public class UltraPlayRepository : IUltraPlayRepository
     {
         public List<ExportMatchDTO> GetAllMatchesNext24Hours()
         {
