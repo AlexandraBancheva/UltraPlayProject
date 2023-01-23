@@ -32,7 +32,8 @@ namespace UltraPlayProject.Persistence
 
 
             var activeMatches = new List<ExportMatchDTO>();
-            var oddsWithSpecialBetValue = new List<ExportOddsDTO>();
+            var groupingBySpecialBetValue = new List<ExportOddsDTO>();
+            var firstGroup = new ExportOddsDTO();
             foreach (var match in matches)
             {
                 foreach (var bet in match.Markets)
@@ -41,10 +42,8 @@ namespace UltraPlayProject.Persistence
                     {
                         if (bet.Odds.Any(o => o.SpecialBetValue != 0) && bet.Odds.Count > 2)
                         {
-                            var groupingBySpecialBetValue = bet.Odds.GroupBy(o => o.SpecialBetValue);
-                            var oddsSpecialValue = groupingBySpecialBetValue.SelectMany(group => group);
-
-                            var firstGroup = oddsSpecialValue.FirstOrDefault();
+                            groupingBySpecialBetValue = bet.Odds.GroupBy(o => o.SpecialBetValue).SelectMany(group => group).ToList();
+                            firstGroup = groupingBySpecialBetValue.FirstOrDefault();
                             bet.Odds.Clear();
                             bet.Odds.Add(firstGroup);
                         }
