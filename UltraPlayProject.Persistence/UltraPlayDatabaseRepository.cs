@@ -31,14 +31,12 @@ namespace UltraPlayProject.Persistence
 
         private static void FillTheDatabase(UltraPlayProjectContext db, ImportSportDTO[]? sportDto, List<Sport> sports, List<int> savedIDs)
         {
-            // var events = new List<Event>();
             var matches = new List<Match>();
             var bets = new List<Bet>();
             var odds = new List<Odd>();
 
             foreach (var dto in sportDto)
             {
-                //SPORT
                 var sport = new Sport
                 {
                     ID = dto.ID,
@@ -49,7 +47,6 @@ namespace UltraPlayProject.Persistence
 
                 foreach (var even in eventz)
                 {
-                    //EVENT
                     var evnt = new Event
                     {
                         ID = even.ID,
@@ -58,10 +55,8 @@ namespace UltraPlayProject.Persistence
                         CategoryID = even.CategoryID,
                     };
 
-
                     foreach (var match in even.Matches)
                     {
-                        //MATCH
                         Enum.TryParse(match.MatchType, out MatchTypeEvent matchType);
 
                         var mtch = new Match
@@ -75,7 +70,6 @@ namespace UltraPlayProject.Persistence
 
                         foreach (var bet in match.Bets)
                         {
-                            // BET
                             var bt = new Bet
                             {
                                 ID = bet.ID,
@@ -85,7 +79,6 @@ namespace UltraPlayProject.Persistence
                             savedIDs.Add(bt.ID);
                             foreach (var odd in bet.Odds)
                             {
-                                //ODD
                                 var dd = new Odd
                                 {
                                     ID = odd.ID,
@@ -108,7 +101,7 @@ namespace UltraPlayProject.Persistence
                 sports.Add(sport);
             }
 
-            CheckForRemovedIds(db, savedIDs, matches, bets, odds);
+            CheckForRemovedEntities(db, savedIDs, matches, bets, odds);
             ClearDatabase(db);
 
             db.Sports.AddRange(sports);
@@ -140,7 +133,7 @@ namespace UltraPlayProject.Persistence
             }
         }
 
-        private static void CheckForRemovedIds(UltraPlayProjectContext db, List<int> savedIDs, List<Match> matches, List<Bet> bets, List<Odd> odds)
+        private static void CheckForRemovedEntities(UltraPlayProjectContext db, List<int> savedIDs, List<Match> matches, List<Bet> bets, List<Odd> odds)
         {
             var removedIds = new List<int>();
             var allMatchIds = db.Matches.Where(m => db.Matches.Any(mt => mt.ID == m.ID)).Select(m => m.ID).ToList();
@@ -165,8 +158,6 @@ namespace UltraPlayProject.Persistence
                 }
             }
 
-            CheckIfNeedUpdate(db, existedIds, matches, bets, odds);
-
             foreach (var forRemove in existedIds)
             {
                 removedIds.Remove(forRemove);
@@ -174,11 +165,13 @@ namespace UltraPlayProject.Persistence
 
             if (removedIds != null)
             {
-                AddMessageToDatabase(db, removedIds);
+                AddMessagesForRemovedEntities(db, removedIds);
             }
+            
+            CheckForUpdatingEntities(db, existedIds, matches, bets, odds);
         }
 
-        private static void CheckIfNeedUpdate(UltraPlayProjectContext db, List<int> existedIds, List<Match> matches, List<Bet> bets, List<Odd> odds)
+        private static void CheckForUpdatingEntities(UltraPlayProjectContext db, List<int> existedIds, List<Match> matches, List<Bet> bets, List<Odd> odds)
         {
             var logs = new List<DatabaseLog>();
             foreach (var existedId in existedIds)
@@ -265,10 +258,10 @@ namespace UltraPlayProject.Persistence
                     }
                 }
             }
-            AddLogToDatabase(db, logs);
+            AddLogsForUpdatingEntitiesToDatabase(db, logs);
         }
 
-        private static void AddMessageToDatabase(UltraPlayProjectContext db, List<int> removedIds)
+        private static void AddMessagesForRemovedEntities(UltraPlayProjectContext db, List<int> removedIds)
         {
             foreach (var id in removedIds)
             {
@@ -282,7 +275,7 @@ namespace UltraPlayProject.Persistence
             }
         }
 
-        private static void AddLogToDatabase(UltraPlayProjectContext db, List<DatabaseLog> logs)
+        private static void AddLogsForUpdatingEntitiesToDatabase(UltraPlayProjectContext db, List<DatabaseLog> logs)
         {
             db.DatabaseLogs.AddRange(logs);
             db.SaveChanges();
