@@ -177,7 +177,6 @@ namespace UltraPlayProject.Persistence
             foreach (var existedId in existedIds)
             {
                 var newMatch = matches.Where(m => m.ID == existedId).FirstOrDefault();
-                var newBet = bets.Where(b => b.ID == existedId).FirstOrDefault();
                 var newOdd = odds.Where(o => o.ID == existedId).FirstOrDefault();
 
 
@@ -192,14 +191,6 @@ namespace UltraPlayProject.Persistence
                             Message = "Match.StartDate was changed.",
                         });
                     }
-                    else if (oldMatch.Name != newMatch.Name)
-                    {
-                        logs.Add(new DatabaseLog
-                        {
-                            Date = DateTime.Now,
-                            Message = "Match.Name was changed.",
-                        });
-                    }
                     else if (oldMatch.MatchType != newMatch.MatchType)
                     {
                         logs.Add(new DatabaseLog
@@ -209,51 +200,15 @@ namespace UltraPlayProject.Persistence
                         });
                     }
                 }
-                else if (newBet != null)
-                {
-                    var oldBet = db.Bets.FirstOrDefault(b => b.ID == newBet.ID);
-                    if (oldBet.Name != newBet.Name)
-                    {
-                        logs.Add(new DatabaseLog
-                        {
-                            Date = DateTime.Now,
-                            Message = "Bet.Name was changed.",
-                        });
-                    }
-                    else if (oldBet.IsLive != newBet.IsLive)
-                    {
-                        logs.Add(new DatabaseLog
-                        {
-                            Date = DateTime.Now,
-                            Message = "Bet.IsLive was changed.",
-                        });
-                    }
-                }
                 else if (newOdd != null)
                 {
                     var oldOdd = db.Odds.FirstOrDefault(o => o.ID == newOdd.ID);
-                    if (oldOdd.Name != newOdd.Name)
-                    {
-                        logs.Add(new DatabaseLog
-                        {
-                            Date = DateTime.Now,
-                            Message = "Odd.Name was changed.",
-                        });
-                    }
-                    else if (oldOdd.Value != newOdd.Value)
+                    if (oldOdd.Value != newOdd.Value)
                     {
                         logs.Add(new DatabaseLog
                         {
                             Date = DateTime.Now,
                             Message = "Odd.Value was changed.",
-                        });
-                    }
-                    else if (oldOdd.SpecialBetValue != newOdd.SpecialBetValue)
-                    {
-                        logs.Add(new DatabaseLog
-                        {
-                            Date = DateTime.Now,
-                            Message = "Odd.SpecialBetValue was changed.",
                         });
                     }
                 }
@@ -268,7 +223,7 @@ namespace UltraPlayProject.Persistence
                 var info = new DatabaseLog
                 {
                     Date = DateTime.Now,
-                    Message = $"{id} was removed from database."
+                    Message = $"Entity with {id} was removed from database."
                 };
                 db.DatabaseLogs.Add(info);
                 db.SaveChanges();
